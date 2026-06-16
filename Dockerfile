@@ -44,4 +44,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD python -c "import garmin_connect_mcp; print('ok')" || exit 1
 
 # Run the MCP server
-ENTRYPOINT ["garmin-connect-mcp"]
+ENTRYPOINT ["garmin-connect-mcp", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8080"]
